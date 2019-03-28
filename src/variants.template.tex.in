@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{euscript}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+
+
+\textheight=27.1cm \textwidth=17.9cm \oddsidemargin= -0.5 cm
+\topmargin=-2.5 cm
+
+
+
+\begin{document}
+
+\begin{center}
+БИЛЕТ ###
+\end{center}
+
+\begin{enumerate}
+@@@ QUESTIONS HERE @@@
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\end{document}
+
+

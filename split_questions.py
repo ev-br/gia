@@ -69,9 +69,36 @@ def create_variants(scheme, mapping=None):
     return lst
 
 
+def create_all_variants(scheme, mapping=None, outf="BILETY.tex"):
+    """Create the TeX file with all variants, for printing"""
+    # read in the template
+    with open("src/variants.template.tex.in", "r") as ft:
+        template = ft.read()
+
+    preamble, body = template.split("\\begin{document}")
+    body = body.split("\\end{document}")[0]
+
+    # create the questions themselves
+    variants = create_variants(scheme, mapping)
+
+    # write out
+    with open(outf, "w") as fb:
+        fb.write(preamble)
+
+        fb.write("\\begin{document}\n\n")
+
+        for n, variant in enumerate(variants):
+            bilet = body.replace("###", str(n+1))
+            qs = "\n\n\\item ".join([""] + variant)
+            bilet = bilet.replace("@@@ QUESTIONS HERE @@@", qs)
+            fb.write(bilet)
+
+        fb.write("\\end{document}")
+
+
 if __name__ == "__main__":
-    print(process_file("src/teormeh.tex"))
-    print(collect_questions(["funkan", "difur.tex"]))
+    #print(process_file("src/teormeh.tex"))
+    #print(collect_questions(["funkan", "difur.tex"]))
 
     #exit(-1)
 
@@ -79,10 +106,14 @@ if __name__ == "__main__":
               [("funkan", 0), ("difur", 1)],
               [("umf", 1), ("funkan", 1)],
              ]
-    lst1 = create_variants(scheme)
 
-    for j, variant in enumerate(lst1):
-        print("\n ---------", j+1)
-        for q in variant:
-            print(q)
+    create_all_variants(scheme)
+
+    exit(-1)
+
+#    lst1 = create_variants(scheme)
+#    for j, variant in enumerate(lst1):
+#        print("\n ---------", j+1)
+#        for q in variant:
+#            print(q)
 
