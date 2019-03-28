@@ -12,24 +12,42 @@
 \usepackage{mathrsfs}
 \usepackage{enumitem}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{0.3\paperheight}
+\setlength{\textheight}{0.4\paperheight}
+\setlength{\footskip}{0pt}
+
+\fancyhead[C]{Федеральное государственное автономное образовательное учреждение высшего образования «Национальный исследовательский университет «Высшая школа экономики»}
+\fancyhead[L]{\includegraphics[height=0.4\headheight]{src/logo.jpg}}
+%
+\fancyfoot[L]{\textbf{\Large Ак руководитель}}
+\fancyfoot[C, R]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
 
 \DeclareMathOperator{\sgn}{sgn}
 
 
-\textheight=27.1cm \textwidth=17.9cm \oddsidemargin= -0.5 cm
-\topmargin=-2.5 cm
+%\textheight=27.1cm \textwidth=17.9cm \oddsidemargin= -0.5 cm
+%\topmargin=-2.5 cm
 
 
 
 \begin{document}
 
+
+%\includegraphics[width=5cm]{images/interpolation_points.pdf}
+
 \begin{center}
-БИЛЕТ ###
+ЭКЗАМЕНАЦИОННЫЙ БИЛЕТ ###
 \end{center}
 
 \begin{enumerate}
 @@@ QUESTIONS HERE @@@
 \end{enumerate}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
