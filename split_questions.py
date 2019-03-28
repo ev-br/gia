@@ -29,7 +29,7 @@ def collect_questions(fnamelist):
     for fname in fnamelist:
         if not fname.endswith(".tex"):
             fname = fname + ".tex"
-        questions = process_file(fname)
+        questions = process_file("./src/" + fname)
         mapping[fname[:-4]] = questions
     return mapping
 
@@ -70,10 +70,10 @@ def create_variants(scheme, mapping=None):
 
 
 if __name__ == "__main__":
-    print(process_file("teormeh.tex"))
-    #print(collect_questions(["funkan", "difur.tex"]))
+    print(process_file("src/teormeh.tex"))
+    print(collect_questions(["funkan", "difur.tex"]))
 
-    exit(-1)
+    #exit(-1)
 
     scheme = [[("funkan", 1), ("matan", 2)],
               [("funkan", 0), ("difur", 1)],
