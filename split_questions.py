@@ -20,5 +20,67 @@ def process_file(fname):
     return questions
 
 
+def collect_questions(fnamelist):
+    """Collect all questions from a list of files.
+
+    Returns a dict of {course, list of questions}
+    """
+    mapping = {}
+    for fname in fnamelist:
+        if not fname.endswith(".tex"):
+            fname = fname + ".tex"
+        questions = process_file(fname)
+        mapping[fname[:-4]] = questions
+    return mapping
+
+
+def create_variants(scheme, mapping=None):
+    """Create exam variants.
+
+    Parameters:
+    -----------
+    scheme : a list of lists of 2-tuples
+        Each list is a variant.
+        Each 2-tuple is a pair of the course & the number of the question
+        The course is a key to the `mapping` argument.
+    mapping : dict, optional
+        The keys are the course names, and the values are the lists of questions
+        Is constructed from the scheme if not provided.
+
+    Returns:
+    --------
+    A list of questions, spelled out in full, as specified by `questions`
+    """
+    if mapping is None:
+        # collect the unique course names from the scheme
+        fnames = set()
+        for var in scheme:
+            for pair in var:
+                fnames.add(pair[0])
+
+        # collect all questions for all courses, keyed by the course name
+        mapping = collect_questions(fnames)
+
+    # create variants according to the scheme
+    lst = []
+    for variant in scheme:
+        this_variant = [mapping[course][number] for course, number in variant]
+        lst.append(this_variant)
+    return lst
+
+
 if __name__ == "__main__":
-    print(process_file("matan.tex"))
+    #print(process_file("matan.tex"))
+    #print(collect_questions(["funkan", "difur.tex"]))
+
+    scheme = [[("funkan", 1), ("matan", 2)],
+              [("funkan", 0), ("difur", 1)],
+              [("umf", 1), ("funkan", 1)],
+             ]
+    lst1 = create_variants(scheme)
+
+    for j, variant in enumerate(lst1):
+        print("\n ---------", j+1)
+        for q in variant:
+            print(q)
+
