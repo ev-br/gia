@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[14pt,a4paper]{article}
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -14,12 +14,11 @@
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\setlength{\headheight}{0.3\paperheight}
-\setlength{\textheight}{0.4\paperheight}
+\setlength{\headheight}{0.0\paperheight}
+\setlength{\textheight}{0.7\paperheight}
 \setlength{\footskip}{0pt}
 
-\fancyhead[C]{Федеральное государственное автономное образовательное учреждение высшего образования «Национальный исследовательский университет «Высшая школа экономики»}
-\fancyhead[L]{\includegraphics[height=0.4\headheight]{src/logo.jpg}}
+\fancyhead[C, L, R]{}
 %
 \fancyfoot[L]{\textbf{\Large Ак руководитель}}
 \fancyfoot[C, R]{}
@@ -30,22 +29,49 @@
 \DeclareMathOperator{\sgn}{sgn}
 
 
-%\textheight=27.1cm \textwidth=17.9cm \oddsidemargin= -0.5 cm
+%\textheight=25.1cm
+\textwidth=17.9cm \oddsidemargin= -0.5 cm
 %\topmargin=-2.5 cm
 
 
 
 \begin{document}
 
+\begin{minipage}{.15\textwidth}
+\includegraphics[width=0.1\paperwidth]{src/logo.jpg}%
+\end{minipage}%
+%
+\begin{minipage}{0.85\textwidth}
+\begin{center}
+{\Large Федеральное государственное автономное образовательное учреждение высшего образования }\\[1em]
+{\huge \textbf{Национальный исследовательский университет  <<Высшая школа экономики>>}}\\[1em]
+{\Large\textbf{Московский институт электроники и математики им. А.Н.~Тихонова}}
+\end{center}
+\end{minipage}
 
-%\includegraphics[width=5cm]{images/interpolation_points.pdf}
+\vspace{1em}
 
 \begin{center}
-ЭКЗАМЕНАЦИОННЫЙ БИЛЕТ ###
+\large
+Государственный междисциплинарный экзамен по направлению подготовки <<Прикладная математика>>
+
+2018-2019 год
 \end{center}
 
+\vspace{2em}
+
+\begin{center}
+\textbf{\Huge
+ЭКЗАМЕНАЦИОННЫЙ БИЛЕТ ###
+}
+\end{center}
+
+\vspace{1em}
+
 \begin{enumerate}
+{\large
 @@@ QUESTIONS HERE @@@
+}
 \end{enumerate}
 
 

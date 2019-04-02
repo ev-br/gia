@@ -69,7 +69,7 @@ def create_variants(scheme, mapping=None):
     return lst
 
 
-def create_all_variants(scheme, mapping=None, outf="BILETY.tex"):
+def create_all_variants(scheme, mapping=None):
     """Create the TeX file with all variants, for printing"""
     # read in the template
     with open("src/variants.template.tex.in", "r") as ft:
@@ -82,18 +82,17 @@ def create_all_variants(scheme, mapping=None, outf="BILETY.tex"):
     variants = create_variants(scheme, mapping)
 
     # write out
-    with open(outf, "w") as fb:
-        fb.write(preamble)
+    print(preamble)
 
-        fb.write("\\begin{document}\n\n")
+    print("\\begin{document}\n\n")
 
-        for n, variant in enumerate(variants):
-            bilet = body.replace("###", str(n+1))
-            qs = "\n\n\\item ".join([""] + variant)
-            bilet = bilet.replace("@@@ QUESTIONS HERE @@@", qs)
-            fb.write(bilet)
+    for n, variant in enumerate(variants):
+        bilet = body.replace("###", str(n+1))
+        qs = "\n\n\\item ".join([""] + variant)
+        bilet = bilet.replace("@@@ QUESTIONS HERE @@@", qs)
+        print(bilet)
 
-        fb.write("\\end{document}")
+    print("\\end{document}")
 
 
 if __name__ == "__main__":
@@ -109,7 +108,6 @@ if __name__ == "__main__":
 
     create_all_variants(scheme)
 
-    exit(-1)
 
 #    lst1 = create_variants(scheme)
 #    for j, variant in enumerate(lst1):
